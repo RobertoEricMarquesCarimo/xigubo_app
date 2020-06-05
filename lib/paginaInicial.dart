@@ -25,11 +25,19 @@ class _home extends State<Home> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text("Xigubo"),
-        actions: <Widget>[Icon(Icons.search), Icon(Icons.shopping_cart)],
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.add_shopping_cart), onPressed: () {}),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
       ),
       drawer: Drawer(
           child: Container(
+        decoration: BoxDecoration(),
         child: Column(
           children: <Widget>[
             Container(
@@ -57,6 +65,7 @@ class _home extends State<Home> {
       body: Container(
         padding: EdgeInsets.all(5),
         child: ListView(
+          scrollDirection: Axis.vertical,
           children: <Widget>[
             Card(
               elevation: 1,
@@ -64,56 +73,71 @@ class _home extends State<Home> {
                 children: <Widget>[
                   Stack(
                     children: <Widget>[
-                    
                       Container(
-                        width: 80,
                         child: Image(
                           image: NetworkImage(
-                              'https://www.xigubo.co.mz/upload/5bd6f128556ce3.97890022.jpg'),
+                              'https://www.xigubo.co.mz/upload/5d4ad2dd0d2fc8.53012008.png'),
                         ),
                       ),
                       Positioned(
-                          right: 0,
-                          top: 0,
+                        left: 5,
+                        top: 5,
+                        child: Container(
+                          width: 70,
+                          child: Image(
+                            image: NetworkImage(
+                                'https://www.xigubo.co.mz/upload/5bd581a6d06bb2.57195610.jpeg'),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                          right: 5,
+                          top: 5,
                           child: Container(
-                            child: Text(
-                              "17%",
-                              style: TextStyle(
-                                  fontSize: 30, fontWeight: FontWeight.bold),
-                            ),
-                          )),
-                        
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "17%",
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              ))),
                       Positioned(
                           bottom: 0,
                           height: 120,
                           child: Opacity(
-                            opacity: 0.70,
-                            child:  Container(
-                              color: Colors.white,
-                              width: MediaQuery.of(context).size.width,
-                              child: Column(
-                                children: <Widget>[
-                                  Text(
-                                    "Nome do produto ",
-                                    style: TextStyle(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "23.99Mt",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "17%",
-                                    style: TextStyle(fontSize: 20),
-                                  ),
-                                ],
-                              )
-                              ),)
-                         
-                      ),
+                            opacity: 0.50,
+                            child: Container(
+                                color: Colors.red,
+                                width: MediaQuery.of(context).size.width,
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      "Nome do produto ",
+                                      style: TextStyle(
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.bold, color: Colors.white),
+                                    ),
+                                    Text(
+                                      "23.99Mt",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold, color: Colors.white),
+                                    ),
+                                    Text(
+                                      "17%",
+                                      style: TextStyle(fontSize: 20,color: Colors.white),
+                                    ),
+                                  ],
+                                )),
+                          )),
                     ],
                   ),
                   Row(
@@ -121,7 +145,7 @@ class _home extends State<Home> {
                   )
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
